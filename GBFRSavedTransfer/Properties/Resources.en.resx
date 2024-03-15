@@ -192,4 +192,7 @@
   <data name="SettingsPageAboutText" xml:space="preserve">
     <value>Simple "GranBlue Fantasy Relink" game storage shift assistant program</value>
   </data>
+  <data name="请先选择存档文件" xml:space="preserve">
+    <value>Please select the archive file first</value>
+  </data>
 </root>

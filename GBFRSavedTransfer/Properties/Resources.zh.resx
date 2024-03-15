@@ -192,4 +192,7 @@
   <data name="GoToGithub" xml:space="preserve">
     <value>Go to Github</value>
   </data>
+  <data name="请先选择存档文件" xml:space="preserve">
+    <value>请先选择存档文件</value>
+  </data>
 </root>

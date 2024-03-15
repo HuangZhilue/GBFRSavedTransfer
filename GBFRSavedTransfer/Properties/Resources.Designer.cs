@@ -259,6 +259,15 @@ namespace GBFRSavedTransfer.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Please select the archive file first 的本地化字符串。
+        /// </summary>
+        public static string 请先选择存档文件 {
+            get {
+                return ResourceManager.GetString("请先选择存档文件", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 choose 的本地化字符串。
         /// </summary>
         public static string 选择 {

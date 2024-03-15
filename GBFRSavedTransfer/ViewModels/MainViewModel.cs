@@ -133,6 +133,11 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void OnSave1To2()
     {
+        if (string.IsNullOrWhiteSpace(SavedFile1) || string.IsNullOrWhiteSpace(SavedFile2) || !Path.Exists(SavedFile1) || !Path.Exists(SavedFile2))
+        {
+            MessageBox.Show(Resources.请先选择存档文件, "Error", MessageBoxButton.OK);
+            return;
+        }
         MessageBoxResult r = MessageBox.Show(SavedFile1 + Environment.NewLine + "===>>>" + Environment.NewLine + SavedFile2, Resources.即将覆盖存档并修改文件头, MessageBoxButton.YesNo);
         if (r != MessageBoxResult.Yes) return;
 
@@ -146,6 +151,11 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void OnSave2To1()
     {
+        if (string.IsNullOrWhiteSpace(SavedFile1) || string.IsNullOrWhiteSpace(SavedFile2) || !Path.Exists(SavedFile1) || !Path.Exists(SavedFile2))
+        {
+            MessageBox.Show(Resources.请先选择存档文件, "Error", MessageBoxButton.OK);
+            return;
+        }
         MessageBoxResult r = MessageBox.Show(SavedFile2 + Environment.NewLine + "===>>>" + Environment.NewLine + SavedFile1, Resources.即将覆盖存档并修改文件头, MessageBoxButton.YesNo);
         if (r != MessageBoxResult.Yes) return;
 
