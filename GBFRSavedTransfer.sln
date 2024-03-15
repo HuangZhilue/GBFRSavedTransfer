@@ -5,6 +5,19 @@ VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GBFRSavedTransfer", "GBFRSavedTransfer\GBFRSavedTransfer.csproj", "{818B7299-8E21-403D-8385-CFF597075837}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{4E3D1776-B067-44AE-B0E9-1395FF0D67B4}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{24F1DAED-D023-41E7-BA39-41084551C6B9}"
+	ProjectSection(SolutionItems) = preProject
+		Sample\Sample_0.png = Sample\Sample_0.png
+		Sample\Sample_1.png = Sample\Sample_1.png
+		Sample\Sample_2.png = Sample\Sample_2.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
