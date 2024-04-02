@@ -6,8 +6,8 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyVersion>1.0.51.0921</AssemblyVersion>
-    <FileVersion>1.0.51.0921</FileVersion>
+    <AssemblyVersion>1.0.55.0408</AssemblyVersion>
+    <FileVersion>1.0.55.0408</FileVersion>
 	<InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);Microsoft.Extensions.Configuration.Binder.SourceGeneration</InterceptorsPreviewNamespaces>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

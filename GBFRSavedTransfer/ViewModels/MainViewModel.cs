@@ -141,10 +141,23 @@ public partial class MainViewModel : ObservableObject
         MessageBoxResult r = MessageBox.Show(SavedFile1 + Environment.NewLine + "===>>>" + Environment.NewLine + SavedFile2, Resources.即将覆盖存档并修改文件头, MessageBoxButton.YesNo);
         if (r != MessageBoxResult.Yes) return;
 
-        File.Copy(SavedFile1, SavedFile2, true);
-        File.Copy(SavedFile1.Insert(SavedFile1.Length - 4, "_BackUp"), SavedFile2.Insert(SavedFile2.Length - 4, "_BackUp"), true);
-        WriteTopHexLine(SavedFile2, SaveFile2HexBak);
-        WriteTopHexLine(SavedFile2.Insert(SavedFile2.Length - 4, "_BackUp"), SaveFile2HexBak);
+        string baseFileName = Path.GetFileNameWithoutExtension(SavedFile1);
+        string baseFileType = Path.GetExtension(SavedFile1);
+        string baseFileParentPath = Path.GetDirectoryName(SavedFile1);
+
+        string targetFileParentPath = Path.GetDirectoryName(SavedFile2);
+
+        DirectoryInfo directory = new(baseFileParentPath);
+        foreach (FileInfo file in directory.GetFiles())
+        {
+            if (file.Name.StartsWith(baseFileName) && file.Name.EndsWith(baseFileType))
+            {
+                string targetFile = Path.Combine(targetFileParentPath, file.Name);
+                File.Copy(file.FullName, targetFile, true);
+                WriteTopHexLine(targetFile, SaveFile2HexBak);
+            }
+        }
+
         InitSaveFile2(SavedFile2);
     }
 
@@ -159,10 +172,23 @@ public partial class MainViewModel : ObservableObject
         MessageBoxResult r = MessageBox.Show(SavedFile2 + Environment.NewLine + "===>>>" + Environment.NewLine + SavedFile1, Resources.即将覆盖存档并修改文件头, MessageBoxButton.YesNo);
         if (r != MessageBoxResult.Yes) return;
 
-        File.Copy(SavedFile2, SavedFile1, true);
-        File.Copy(SavedFile2.Insert(SavedFile2.Length - 4, "_BackUp"), SavedFile1.Insert(SavedFile1.Length - 4, "_BackUp"), true);
-        WriteTopHexLine(SavedFile1, SaveFile1HexBak);
-        WriteTopHexLine(SavedFile1.Insert(SavedFile1.Length - 4, "_BackUp"), SaveFile1HexBak);
+        string baseFileName = Path.GetFileNameWithoutExtension(SavedFile2);
+        string baseFileType = Path.GetExtension(SavedFile2);
+        string baseFileParentPath = Path.GetDirectoryName(SavedFile2);
+
+        string targetFileParentPath = Path.GetDirectoryName(SavedFile1);
+
+        DirectoryInfo directory = new(baseFileParentPath);
+        foreach (FileInfo file in directory.GetFiles())
+        {
+            if (file.Name.StartsWith(baseFileName) && file.Name.EndsWith(baseFileType))
+            {
+                string targetFile = Path.Combine(targetFileParentPath, file.Name);
+                File.Copy(file.FullName, targetFile, true);
+                WriteTopHexLine(targetFile, SaveFile1HexBak);
+            }
+        }
+
         InitSaveFile1(SavedFile1);
     }
 
